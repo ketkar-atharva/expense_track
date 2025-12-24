@@ -1,0 +1,55 @@
+<% layout("/layout/boilerplate") -%>
+
+<div class="container d-flex justify-content-center align-items-center mt-4" style="min-height: 85vh;">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+        
+        <% if(successMsg && successMsg.length) { %>
+            <div class="alert alert-showdown success fade show" role="alert">
+                <%=successMsg %>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
+            </div>
+        <% } %>
+
+        <div class="alert alert-showdown danger fade show mb-4" role="alert">
+            <span><i class="bi bi-receipt"></i> If you have a physical bill, use the <strong>'ADD RECEIPT'</strong> page for AI scanning.</span>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
+        </div>
+
+        <div class="showdown-card p-4 p-md-5">
+            <h2 class="fw-bold mb-1 text-center">ADD THE DETAILS</h2>
+            <p class="text-blue-accent text-center mb-5">MANUAL EXPENSE ENTRY</p>
+
+            <form method="POST" action="/search" class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Merchant</label>
+                        <input name="exp[merchant]" placeholder="e.g. Amazon, Starbucks" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Total Amount (₹)</label>
+                        <input name="exp[total]" placeholder="0.00" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Date</label>
+                        <input name="exp[date]" placeholder="DD-MM-YYYY" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Category</label>
+                        <input name="exp[category]" placeholder="Food, Travel, Bills..." class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Was this Essential?</label>
+                    <input name="exp[isessential]" placeholder="Type 'True' or 'False'" class="form-control" required>
+                    
+                </div>
+
+                <button class="btn btn-showdown w-100">ADD EXPENSE</button>
+            </form>
+        </div>
+    </div>
+</div>

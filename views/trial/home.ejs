@@ -1,0 +1,78 @@
+<% layout("/layout/boilerplate") -%>
+
+<div class="dashboard-container">
+    <header class="streak-header mb-5">
+        <div class="streak-card-showdown">
+            <span class="streak-label">SAVINGS STREAK</span>
+            <h1 class="streak-number-big"><%=currs%> <span>DAYS</span></h1>
+            <div class="streak-progress-container">
+                <!-- <div class="streak-progress-fill" style="width: <%= (currs / 30) * 100 %>%;"></div> -->
+            </div>
+            <p class="streak-quote mt-3">CONSISTENCY IS THE NEW CURRENCY.</p>
+        </div>
+    </header>
+
+    <div class="trophy-section mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="fw-bold tracking-tight">TROPHY ROOM</h4>
+            <span class="text-blue-accent fw-bold small">ACHIEVEMENTS</span>
+        </div>
+        
+        <div class="badge-grid-showdown">
+            <div class="badge-item <%= hasBadge('Week_warrior') ? 'unlocked' : 'locked' %>">
+                <div class="badge-ring">
+                    <i class="fa-solid fa-shield"></i>
+                </div>
+                <span class="badge-name">WEEK WARRIOR</span>
+            </div>
+
+            <div class="badge-item <%= hasBadge('Frugal_flyer') ? 'unlocked' : 'locked' %>">
+                <div class="badge-ring">
+                    <i class="fa-solid fa-dove"></i>
+                </div>
+                <span class="badge-name">FRUGAL FLYER</span>
+            </div>
+
+            <div class="badge-item <%= hasBadge('Savings_sensei') ? 'unlocked' : 'locked' %>">
+                <div class="badge-ring">
+                    <i class="fa-solid fa-hand-peace"></i>
+                </div>
+                <span class="badge-name">SAVINGS SENSEI</span>
+            </div>
+        </div>
+    </div>
+  <div class="showdown-card p-4 p-md-5 mt-5">
+    <section class="activity-section">
+        <h4 class="fw-bold mb-4">RECENT ACTIVITY</h4>
+        <div class="table-responsive">
+            <table class="modern-table-showdown">
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>CATEGORY</th>
+                        <th>AMOUNT</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let exp of expdetails.slice(-4)) { %>
+                        <tr class="activity-row">
+                            <td class="text-muted"><%= exp.date %></td>
+                            <td class="fw-bold"><%= exp.category %></td>
+                            <td class="fw-bold">₹<%= exp.total %></td>
+                            <td>
+                                <% if (exp.isessential.toLowerCase() == "true") { %>
+                                    <span class="tag-status essential">Essential</span>
+                                <% } else { %>
+                                    <span class="tag-status luxury">Luxury</span>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+  </div>
+    
+</div>

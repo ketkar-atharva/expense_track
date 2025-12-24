@@ -1,0 +1,788 @@
+
+:root {
+    --primary-blue: #2563eb;    /* Electric Blue */
+    --bg-black: #202121;        /* True Black */
+    --card-grey: #121417;       /* Dark Grey Card */
+    --input-bg: #2a2e35;        
+    --input-hover: #343942;
+    --text-main: #ffffff;       
+    --text-muted: #a1a1aa;      /* Slightly brighter grey for better readability */
+    --border-color: #3f3f46;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Main Showdown Card */
+.showdown-card {
+    background-color: var(--card-grey);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Sidebar Styling */
+.badge-sidebar {
+    background: linear-gradient(180deg, #16191d 0%, #0c0d0e 100%);
+    border-right: 1px solid var(--border-color);
+    padding: 40px;
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+/* Badge Preview Items */
+.badge-preview-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+.badge-preview-item.active {
+    opacity: 1;
+}
+
+.badge-ring {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-right: 15px;
+}
+
+.active .badge-ring {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
+}
+
+.badge-text h6 {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.badge-text span {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+/* Form Section */
+.text-blue-accent {
+    color: var(--primary-blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.form-label {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.form-control {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: white !important;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.form-control:focus {
+    background-color: #565d67 !important;
+    border-color: var(--primary-blue);
+    box-shadow: none;
+}
+/* Placeholder styling for all browsers */
+.form-control::placeholder {
+    color: #e2e8f0; /* Very light grey/white for high visibility */
+    opacity: 0.75;    /* Firefox lowers opacity by default, this forces it to 1 */
+    font-size: 0.85rem;
+}
+
+/* For Internet Explorer/Edge */
+.form-control:-ms-input-placeholder {
+    color: #e2e8f0;
+}
+
+/* For Safari/Chrome */
+.form-control::-webkit-input-placeholder {
+    color: #e2e8f0;
+}
+
+/* Electric Blue Button */
+.btn-showdown {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: 800;
+    border-radius: 12px;
+    padding: 14px;
+    letter-spacing: 1px;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-showdown:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.login-link {
+    color: var(--primary-blue);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/*-----------------------------------------------------Css for Navbar--------------------------------------------------------------*/
+/* Navbar Styling */
+.custom-navbar {
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    color: var(--primary-blue) !important;
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    color: var(--text-dim) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-white) !important;
+}
+
+/* Auth Buttons in Nav */
+.nav-btn-outline {
+    border: 1px solid var(--accent-blue);
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem !important;
+    color: var(--accent-blue) !important;
+}
+
+.nav-btn-outline:hover {
+    background-color: rgb(48, 48, 249) !important;
+    color: white !important;
+}
+
+.nav-btn-primary {
+    background-color: var(--accent-blue);
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem !important;
+    color: white !important;
+}
+
+.nav-link-logout {
+    color: var(--accent-red) !important;
+    opacity: 0.8;
+}
+
+.nav-link-logout:hover {
+    color:rgb(253, 30, 30) !important;
+    opacity: 1;
+}
+
+/* Mobile Toggler Correction */
+.navbar-toggler {
+    border: 1px solid var(--border-soft);
+}
+.navbar-toggler-icon {
+    filter: invert(1); /* Makes the hamburger icon white */
+}
+
+/* Footerbar styling */
+.footer-gemini {
+    background-color: #0d1117; /* Deep AI Dark */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* The subtle Gemini-style glow at the top */
+  .footer-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #4285f4, #9b72cb, #d96570, transparent);
+  }
+
+  .footer-brand-gradient {
+    background: linear-gradient(45deg, #4285f4, #9b72cb, #d96570);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+  }
+
+  .status-dot {
+    height: 8px;
+    width: 8px;
+    background-color: #00e676;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px #00e676;
+    margin-right: 5px;
+    animation: pulse-green 2s infinite;
+  }
+
+  @keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 5px rgba(0, 230, 118, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
+  }
+
+  .footer-link {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #ffffff;
+  }
+
+/*----------------------------------------------------- Login page styling --------------------------------------------------*/
+/* Alert Styling to match Showdown theme */
+.alert-showdown {
+    background-color: var(--card-grey);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert-showdown.success {
+    border-left: 4px solid var(--primary-blue);
+}
+
+.alert-showdown.danger {
+    border-left: 4px solid #ef4444; /* Red for errors */
+}
+
+/* Ensure the Login card is centered and doesn't have sidebar styles */
+.showdown-card {
+    background-color: var(--card-grey);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Re-applying the improved Input visibility */
+.form-control {
+    background-color: #2a2e35; /* Lighter charcoal */
+    border: 1px solid #3f3f46;
+    color: white !important;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.form-control::placeholder {
+    color: #e2e8f0; /* Highly visible placeholder */
+    opacity: 1;
+}
+
+.form-label {
+    color: #f8fafc; /* Bright Label */
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+/* Close Button Fix */
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+    font-size: 0.7rem;
+}
+
+/*---------------------------------------------------------------------- Scan receipt page -----------------------------------------*/
+/* Gemini Gradient Text */
+.gemini-gradient-text {
+    background: linear-gradient(90deg, #4285f4, #9b72cb, #d96570);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Capsule Input Container */
+.gemini-input-container {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-soft);
+    border-radius: 32px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.gemini-input-container:focus-within {
+    border-color: #4285f4;
+    box-shadow: 0 0 15px rgba(66, 133, 244, 0.1);
+}
+
+/* Hidden File Input but Visible Icon */
+.attachment-wrapper {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.attachment-wrapper input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.attachment-wrapper i {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+}
+
+/* Textarea styling */
+.gemini-textarea {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    resize: none;
+    font-size: 1.1rem;
+    padding: 10px 0;
+}
+
+/* Circular Send Button */
+.gemini-send-btn {
+       width: 45px;
+
+    height: 45px;
+
+    background:white;
+
+    color:black;
+
+    border: none;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: transform 0.2s ease;
+}
+
+.gemini-send-btn:hover {
+    transform: scale(1.05);
+    background: white;
+}
+#clipIcon:hover{
+ cursor: pointer;
+}
+
+/* Simple Loading Animation */
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+}
+
+/*-------------------------------------------------------- Home page styling  and Badge Styling --------------------------------------------*/
+/* Streak Card Styling */
+.streak-card-showdown {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 32px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease 0s;
+}
+.streak-card-showdown:hover{
+    transform: scale(1.025);
+    box-shadow: 0.5px 0.5px 1px rgb(88, 87, 87);
+}
+
+.streak-label {
+    color: #3b82f6; /* Electric Blue */
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.streak-number-big {
+    font-size: 4rem;
+    font-weight: 900;
+    margin: 10px 0;
+    color: white;
+}
+
+.streak-number-big span {
+    font-size: 1.5rem;
+    color: #64748b;
+}
+
+.streak-progress-container {
+    background: #1e293b;
+    height: 6px;
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.streak-progress-fill {
+    background: #3b82f6;
+    height: 100%;
+    box-shadow: 0 0 10px #3b82f6;
+}
+
+/* Badge Grid Layout */
+.badge-grid-showdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.badge-item {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.badge-item.locked {
+    opacity: 0.2;
+    filter: grayscale(1);
+    border: 1px dashed #444;
+}
+
+.badge-item.unlocked {
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.badge-ring {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #64748b;
+}
+
+.unlocked .badge-ring {
+    color: #3b82f6;
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+}
+
+.badge-name {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #94a3b8;
+}
+
+/* Table Refresh */
+.modern-table-showdown {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.activity-row {
+    background: #161b22;
+    transition: 0.2s;
+}
+
+.activity-row:hover {
+    background: #1d232c;
+}
+
+.modern-table-showdown td {
+    padding: 20px;
+    color: white;
+}
+
+.modern-table-showdown td:first-child { border-radius: 15px 0 0 15px; }
+.modern-table-showdown td:last-child { border-radius: 0 15px 15px 0; }
+
+.tag-status {
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.essential { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.luxury { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+/*------------------------------------------------- Add manually expense styling ------------------------------------------------*/
+/* Specific tweaks for the manual entry form */
+.showdown-card .row {
+    margin-bottom: 0.5rem;
+}
+
+/* Enhancing the "Hint" text under the streak-breaker field */
+.text-muted {
+    color: #a1a1aa !important;
+    display: block;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+}
+
+/* Icon style if you use Bootstrap Icons */
+.bi-receipt {
+    margin-right: 8px;
+    color: #ef4444;
+}
+
+/* Ensure the card doesn't feel too cramped on mobile */
+@media (max-width: 576px) {
+    .showdown-card {
+        padding: 1.5rem !important;
+        border-radius: 20px;
+    }
+}
+
+/*----------------------------------------------------- All expense table styling -------------------------------------*/
+/* Section Heading */
+.expense-section h3 {
+    letter-spacing: 1px;
+    font-size: 1.25rem;
+}
+
+/* Table Architecture */
+.modern-table {
+    border-collapse: separate;
+    border-spacing: 0 12px; /* This creates the "gap" between rows */
+}
+
+.modern-table thead th {
+    color: #71717a; /* Muted Grey */
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0 15px 10px 15px;
+    border: none;
+}
+
+/* Individual Row Styling */
+.activity-row {
+    background-color: #1c1f24; /* Lighter charcoal for rows */
+    transition: all 0.3s ease;
+}
+
+.activity-row:hover {
+    background-color: #24282e; /* Highlight on hover */
+    transform: scale(1.005);
+}
+
+.modern-table td {
+    padding: 18px 15px;
+    vertical-align: middle;
+    border: none;
+}
+
+/* Rounding the corners of each row */
+.modern-table td:first-child { border-radius: 12px 0 0 12px; }
+.modern-table td:last-child { border-radius: 0 12px 12px 0; }
+
+/* Category Pill */
+.category-pill {
+    background: rgba(255, 255, 255, 0.05);
+    color: #a1a1aa;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Status Tags */
+.tag {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag.essential {
+    background: rgba(16, 185, 129, 0.1); /* Soft Green */
+    color: #10b981;
+}
+
+.tag.luxury {
+    background: rgba(239, 68, 68, 0.1); /* Soft Red */
+    color: #ef4444;
+}
+
+/* The Blue Accent Text */
+.text-blue-accent {
+    color: #2563eb;
+    letter-spacing: 1px;
+}
+/*------------------------------------------------------- Footer styling-------------------------------------  */
+/* Full Width Footer Styling */
+.footer-showdown {
+    background-color: #171a1d; /* True Black to match body */
+    border-top: 1px solid #27272a;
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+/* Brand Color */
+.footer-brand-blue {
+    color: #2563eb; /* Your Electric Blue */
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* Status Dot: Pulse Animation */
+.status-dot-active {
+    height: 8px;
+    width: 8px;
+    background-color: #10b981; /* Emerald Green */
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.status-text {
+    color: #71717a;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Legal Links */
+.footer-link {
+    color: #a1a1aa;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #2563eb;
+}
+
+.copyright-text {
+    color: #52525b;
+    font-size: 0.7rem;
+    margin-bottom: 0;
+}
+
+/* Ensure the layout-boilerplate doesn't constrain the footer */
+body, html {
+    overflow-x: hidden;
+}
+/*------------------------------------------------------- About us page  -------------------------------------------------*/
+/* About Page Specifics */
+.tracking-wider {
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+}
+
+/* Glow Effect for the Main Title */
+.showdown-text-glow {
+    color: white;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+/* Icon Circles for About Cards */
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.bg-blue {
+    background-color: var(--primary-blue);
+    color: white;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
+}
+
+.bg-dark-grey {
+    background-color: #2a2e35;
+    color: #a1a1aa;
+}
+
+/* Ensure the Info-Grid looks modern */
+.info-card h3 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.info-card p {
+    line-height: 1.6;
+}
+
+/* Responsive spacing */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}

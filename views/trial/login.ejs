@@ -1,0 +1,45 @@
+<% layout("/layout/boilerplate") -%>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-5">
+        
+        <% if(successMsg && successMsg.length) { %>
+            <div class="alert alert-showdown success fade show" role="alert">
+                <%= successMsg %>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
+            </div>
+        <% } %>
+
+        <% if(errorMsg && errorMsg.length) { %>
+            <div class="alert alert-showdown danger fade show" role="alert">
+                <%= errorMsg %>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
+            </div>
+        <% } %>
+
+        <div class="showdown-card p-4 p-md-5">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold mb-1">WELCOME BACK</h2>
+                <p class="text-blue-accent">ACCESS YOUR SMART DASHBOARD</p>
+            </div>
+
+            <form method="POST" action="/login" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input name="username" placeholder="Enter your username" class="form-control" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Password</label>
+                    <input name="password" type="password" placeholder="••••••••" class="form-control" required>
+                </div>
+
+                <button class="btn btn-showdown w-100 mb-4">LOG IN</button>
+            </form>
+            
+            <p class="text-center ">
+                Don't have an account? <a href="/signup" class="login-link">Create one now</a>
+            </p>
+        </div>
+    </div>
+</div>

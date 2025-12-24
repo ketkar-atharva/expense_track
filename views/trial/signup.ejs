@@ -1,0 +1,50 @@
+<% layout("/layout/boilerplate") -%>
+<% if(errorMsg && errorMsg.length) { %>
+            <div class="alert alert-showdown success fade show" role="alert">
+                <%=errorMsg %>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
+            </div>
+        <% } %>
+<div class="container d-flex justify-content-center align-items-center mt-4" style="min-height: 90vh;">
+
+    <div class="col-12 col-lg-10">
+        <div class="showdown-card">
+            <div class="row g-0">
+
+                <div class="col-md-12 form-section">
+                    <div class="p-4 p-md-5">
+                        <h2 class="fw-bold mb-1">CREATE ACCOUNT</h2>
+                        <p class="text-blue-accent mb-5"></p>
+
+                        <form method="post" action="/signup" class="needs-validation" novalidate>
+                            <div class="row">
+                                
+                                    <label class="form-label">Username</label>
+                                    <input name="username" placeholder="johndoe" class="form-control" required>
+                        
+                                
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" name="email" placeholder="email@domain.com" class="form-control" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label">Password</label>
+                                <input type="password" name="password" placeholder="••••••••" class="form-control" required>
+                            </div>
+
+                            <button class="btn btn-showdown w-100 mb-4">SIGN UP</button>
+                        </form>
+                        
+                        <p class="text-center">
+                            Already have an account? <a href="/login" class="login-link">Log In</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

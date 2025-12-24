@@ -1,0 +1,67 @@
+<% layout("/layout/boilerplate") -%>
+
+<div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 80vh;">
+    <% if(successMsg && successMsg.length) { %>
+            <div class="alert alert-success alert-dismissible fade show custom-alert" role="alert">
+                <%= successMsg %>
+                <button type="button" class="btn-close btn-close-black" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+    <div class="w-100" style="max-width: 800px;">
+    <div class="showdown-card p-4 p-md-5">
+        <div class="text-center mb-5">
+            <h1 class="gemini-gradient-text fw-bold display-4">Hello, <%= currUser.username %></h1>
+            <p class="text-dim fs-5">What receipt are we analyzing today?</p>
+        </div>
+
+        <form method="POST" action="/scan-receipt" enctype="multipart/form-data" id="geminiForm">
+            <div class="gemini-input-container">
+                
+                <div class="attachment-wrapper">
+                    <input type="file" name="receipt" id="receiptInput" accept="image/*,.heic" required>
+                    <i class="fa-solid fa-paperclip" id="clipIcon"></i>
+                </div>
+
+                <textarea name="text" class="gemini-textarea" placeholder="Was this Essential ? (True/False)" rows="1"></textarea>
+                
+
+                <button type="submit" class="gemini-send-btn" id="sendBtn">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            
+            <div id="fileNameDisplay" class="text-center mt-3 text-dim small d-none">
+                <i class="fa-solid fa-image me-2"></i><span id="nameText"></span>
+            </div>
+        </form>
+    </div>
+        
+
+        <div id="aiLoading" class="text-center mt-5 d-none">
+            <div class="spinner-grow text-primary" role="status"></div>
+            <p class="mt-3 text-dim animate-pulse">Gemini is reading your receipt...</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Show filename when selected
+    const input = document.getElementById('receiptInput');
+    const display = document.getElementById('fileNameDisplay');
+    const nameText = document.getElementById('nameText');
+    const clip = document.getElementById('clipIcon');
+
+    input.addEventListener('change', () => {
+        if (input.files.length > 0) {
+            nameText.innerText = input.files[0].name;
+            display.classList.remove('d-none');
+            clip.style.color = 'var(--accent-blue)';
+        }
+    });
+
+    // Handle Loading State
+    document.getElementById('geminiForm').onsubmit = () => {
+        document.getElementById('aiLoading').classList.remove('d-none');
+        document.getElementById('sendBtn').disabled = true;
+    };
+</script>
