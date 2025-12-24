@@ -270,6 +270,10 @@ app.get("/home", async (req,res)=>{
 
 //All Expenses api
 app.get("/allexp",async(req,res)=>{
+  if(!req.isAuthenticated()){
+    req.flash("error","You must be logged in");
+    return res.redirect("/login");
+  }
   let id=req.user._id;
   const allexp=await Expense.find({ownerid:id});
   res.render("trial/allexp",{allexp});
