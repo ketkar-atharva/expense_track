@@ -42,6 +42,7 @@ const dbURL=process.env.ATLAS_URL;
 
 // Database Connectivity
 main().then(()=>{
+  
   console.log("Connected to database");
 }).catch((err)=>{console.log(err)});
 
